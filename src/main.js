@@ -3,7 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log(buttons)
     const tabsContainer = document.querySelectorAll('[data-tab-id]');
-
+    const questions =document.querySelectorAll('[data-faq-question]');
+    
+    for (let i = 0; i < questions.length; i++) {
+        questions[i].addEventListener('click', abreOuFechaResposta)
+        
+    }
+    
+    
+    
+    
+    
+    
     /* é necessário o array pois o retorno do querySelector
     é um array. Ou seja, é necessário aplicar a função a cada elemento.
     Não se trata de todos os elementos de tal classe selecionados (como
@@ -20,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 })
+
+function abreOuFechaResposta(elemento) {
+    const classe = 'faq__questions__item--is-open';
+    const elementoPai = elemento.target.parentNode;
+    elementoPai.classList.toggle(classe)
+
+}
 
 function escondeTodasAbas() {
     const tabsContainer = document.querySelectorAll('[data-tab-id]');
